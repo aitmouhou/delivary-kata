@@ -5,6 +5,9 @@ import com.aam.delivery.application.port.in.TrackDeliveryUseCase;
 import com.aam.delivery.domain.exception.DeliveryNotFoundException;
 import com.aam.delivery.domain.exception.InvalidDeliveryModificationException;
 import com.aam.delivery.domain.model.Delivery;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +22,15 @@ public class DeliveryController {
         this.trackDeliveryUseCase = trackDeliveryUseCase;
     }
 
+    @Operation(summary = "Recherche un document par hashCode")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(responseCode = "200", description = "Un document attaché trouvé"),
+                    @ApiResponse(responseCode = "400", description = "Code de recherche invalid"),
+                    @ApiResponse(responseCode = "403", description = "Accès non autorisé"),
+                    @ApiResponse(responseCode = "404", description = "Aucun document attaché trouvé"),
+                    @ApiResponse(responseCode = "500", description = "Erreur interne du serveur")}
+    )
     @PutMapping("/address/{id}")
     public ResponseEntity<Delivery> changeDeliveryAddress(@PathVariable Long id, @RequestBody String deliveryAddress)throws DeliveryNotFoundException {
         Delivery updatedDelivery = modifyDeliveryUseCase.changeDeliveryAddress(id, deliveryAddress);
