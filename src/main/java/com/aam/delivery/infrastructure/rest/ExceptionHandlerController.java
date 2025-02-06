@@ -1,4 +1,4 @@
-package com.aam.delivery.infrastructure.adapters.rest;
+package com.aam.delivery.infrastructure.rest;
 
 import com.aam.delivery.domain.exception.DeliveryNotFoundException;
 import com.aam.delivery.domain.exception.InvalidDeliveryModificationException;

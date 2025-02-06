@@ -1,20 +1,60 @@
 package com.aam.delivery.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.aam.delivery.infrastructure.adapters.persistence.entity.CustomerEntity;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@Data
 public class Delivery {
     private Long id;
     private String address;
     private LocalDateTime deliverySlot;
     private DeliveryStatus status;
+    private CustomerEntity customer;
 
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public LocalDateTime getDeliverySlot() {
+        return deliverySlot;
+    }
+
+    public void setDeliverySlot(LocalDateTime deliverySlot) {
+        this.deliverySlot = deliverySlot;
+    }
+
+    public DeliveryStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(DeliveryStatus status) {
+        this.status = status;
+    }
+
+    public CustomerEntity getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(CustomerEntity customer) {
+        this.customer = customer;
+    }
 }
 
 

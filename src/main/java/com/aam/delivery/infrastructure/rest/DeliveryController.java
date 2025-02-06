@@ -1,4 +1,4 @@
-package com.aam.delivery.infrastructure.adapters.rest;
+package com.aam.delivery.infrastructure.rest;
 
 import com.aam.delivery.application.port.in.ModifyDeliveryUseCase;
 import com.aam.delivery.application.port.in.TrackDeliveryUseCase;
