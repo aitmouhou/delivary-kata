@@ -10,11 +10,20 @@ import java.time.LocalDateTime;
 public class Delivery {
     private Long id;
     private String address;
-    private LocalDateTime deliverySlot;
+    private DeliverySlot deliverySlot;
     private DeliveryStatus status;
     private CustomerEntity customer;
 
+    public Delivery() {
+    }
 
+    public Delivery(Long id, String address, DeliverySlot deliverySlot, DeliveryStatus status, CustomerEntity customer) {
+        this.id = id;
+        this.address = address;
+        this.deliverySlot = deliverySlot;
+        this.status = status;
+        this.customer = customer;
+    }
 
     public Long getId() {
         return id;
@@ -32,14 +41,6 @@ public class Delivery {
         this.address = address;
     }
 
-    public LocalDateTime getDeliverySlot() {
-        return deliverySlot;
-    }
-
-    public void setDeliverySlot(LocalDateTime deliverySlot) {
-        this.deliverySlot = deliverySlot;
-    }
-
     public DeliveryStatus getStatus() {
         return status;
     }
@@ -54,6 +55,14 @@ public class Delivery {
 
     public void setCustomer(CustomerEntity customer) {
         this.customer = customer;
+    }
+
+    public DeliverySlot getDeliverySlot() {
+        return deliverySlot;
+    }
+
+    public void setDeliverySlot(DeliverySlot deliverySlot) {
+        this.deliverySlot = deliverySlot;
     }
 }
 
