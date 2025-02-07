@@ -7,63 +7,13 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Data
 public class Delivery {
     private Long id;
     private String address;
     private DeliverySlot deliverySlot;
     private DeliveryStatus status;
     private CustomerEntity customer;
-
-    public Delivery() {
-    }
-
-    public Delivery(Long id, String address, DeliverySlot deliverySlot, DeliveryStatus status, CustomerEntity customer) {
-        this.id = id;
-        this.address = address;
-        this.deliverySlot = deliverySlot;
-        this.status = status;
-        this.customer = customer;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public DeliveryStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(DeliveryStatus status) {
-        this.status = status;
-    }
-
-    public CustomerEntity getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(CustomerEntity customer) {
-        this.customer = customer;
-    }
-
-    public DeliverySlot getDeliverySlot() {
-        return deliverySlot;
-    }
-
-    public void setDeliverySlot(DeliverySlot deliverySlot) {
-        this.deliverySlot = deliverySlot;
-    }
 }
 
 
