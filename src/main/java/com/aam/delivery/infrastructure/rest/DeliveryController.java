@@ -37,12 +37,31 @@ public class DeliveryController {
         Delivery updatedDelivery = modifyDeliveryUseCase.changeDeliveryAddress(id, deliveryAddress);
         return ResponseEntity.ok(updatedDelivery);
     }
+
+    @Operation(summary = "Recherche un document par hashCode")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(responseCode = "200", description = "Un document attaché trouvé"),
+                    @ApiResponse(responseCode = "400", description = "Code de recherche invalid"),
+                    @ApiResponse(responseCode = "403", description = "Accès non autorisé"),
+                    @ApiResponse(responseCode = "404", description = "Aucun document attaché trouvé"),
+                    @ApiResponse(responseCode = "500", description = "Erreur interne du serveur")}
+    )
     @PutMapping("/slot/{id}")
     public ResponseEntity<Delivery> changeDeliverySlot(@PathVariable Long id, @RequestBody String deliverySlot) throws DeliveryNotFoundException {
         Delivery updatedDelivery = modifyDeliveryUseCase.changeDeliverySlot(id, deliverySlot);
         return ResponseEntity.ok(updatedDelivery);
     }
 
+    @Operation(summary = "Recherche un document par hashCode")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(responseCode = "200", description = "Un document attaché trouvé"),
+                    @ApiResponse(responseCode = "400", description = "Code de recherche invalid"),
+                    @ApiResponse(responseCode = "403", description = "Accès non autorisé"),
+                    @ApiResponse(responseCode = "404", description = "Aucun document attaché trouvé"),
+                    @ApiResponse(responseCode = "500", description = "Erreur interne du serveur")}
+    )
     @GetMapping("//{id}")
     public ResponseEntity<Delivery> trackDelivery(@PathVariable Long id) throws DeliveryNotFoundException {
         Delivery delivery = trackDeliveryUseCase.getDeliveryById(id);
